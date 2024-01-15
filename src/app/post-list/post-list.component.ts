@@ -10,6 +10,8 @@ export class PostListComponent implements OnInit {
   postListe : any [] | undefined
  constructor(private postsService : PostServiceService){}
  ngOnInit(): void {
-     this.postListe=this.postsService.getPosts()
+  this.postsService.getPosts().subscribe((postListe)=>{
+    this.postListe =postListe
+  })
  }
 }
